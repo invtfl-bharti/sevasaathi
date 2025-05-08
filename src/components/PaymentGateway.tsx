@@ -1,5 +1,5 @@
 import React from "react";
-import InfoScreen from "./ui/InfoScreenProps";
+import InfoScreen from "./InfoScreenProps";
 
 function FindServicePage() {
   return (
@@ -11,7 +11,7 @@ function FindServicePage() {
     //   subtitle=" Choose the preferable options of payment and get best service"
     // />
     <InfoScreen
-      imgUrl="/Icon/Page4.png" 
+      imgUrl="/Icon/Page4.png"
       title="Payment Gateway"
       subtitle=" Choose the preferable options of payment and get best service"
     />

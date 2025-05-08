@@ -1,5 +1,5 @@
 import React from "react";
-import InfoScreen from "./ui/InfoScreenProps";
+import InfoScreen from "./InfoScreenProps";
 
 function FindServicePage() {
   return (
@@ -11,7 +11,7 @@ function FindServicePage() {
     //   subtitle="Find your service as per your preferences"
     // />
     <InfoScreen
-      imgUrl="/Icon/Page2.png" 
+      imgUrl="/Icon/Page2.png"
       title="Find Your Service"
       subtitle="Find your service as per your preferences"
     />

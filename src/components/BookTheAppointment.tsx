@@ -1,5 +1,5 @@
 import React from "react";
-import InfoScreen from "./ui/InfoScreenProps";
+import InfoScreen from "./InfoScreenProps";
 
 function FindServicePage() {
   return (
@@ -11,7 +11,7 @@ function FindServicePage() {
     //   subtitle="Book your services on your own time"
     // />
     <InfoScreen
-      imgUrl="/Icon/Page3.png" 
+      imgUrl="/Icon/Page3.png"
       title="Book The Appointment"
       subtitle="Book your services on your own time"
     />
@@ -35,7 +35,7 @@ export default FindServicePage;
 //           <div className="flex flex-col gap-2">
 //             <h2 className="text-black text-2xl font-bold">Book The Appointment</h2>
 //             <p className="text-slate-600">
-//             Book your services on your own time 
+//             Book your services on your own time
 //             </p>
 //           </div>
 //         </div>

@@ -1,9 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import OnBoardingScreen from "@/components/OnBoardingScreen";
-import FindServicePage from "@/components/FindServicePage";
-import BookTheAppointment from "@/components/BookTheAppointment";
-import PaymentGateway from "@/components/PaymentGateway";
+import InfoScreen from "@/components/InfoScreenProps";
 import HomePage from "@/components/HomePage";
 
 function Page() {
@@ -48,6 +45,53 @@ function Page() {
 
   // Check if we're on the homepage
   const isHomePage = currentPage === "home";
+
+  // Get content for each screen
+  // Get content for each screen
+const getScreenContent = () => {
+  switch (currentPage) {
+    case "onboarding":
+      return {
+        imgUrl: "/Icon/HomePage.png",
+        imgHeight: 400,
+        imgWidth: 400,
+        title: "Welcome To SevaSathi",
+        subtitle: "Your one stop destination for all your daily chores!",
+      };
+    case "findService":
+      return {
+        imgUrl: "/Icon/Page2.png",
+        imgHeight: 400,
+        imgWidth: 400,
+        title: "Find Your Service",
+        subtitle: "Find your service as per your preferences",
+      };
+    case "bookAppointment":
+      return {
+        imgUrl: "/Icon/Page3.png",
+        imgHeight: 400,
+        imgWidth: 400,
+        title: "Book Your Appointment",
+        subtitle: "Schedule services at your convenience with just a few taps",
+      };
+    case "paymentGateway":
+      return {
+        imgUrl: "/Icon/Page4.png",
+        imgHeight: 400,
+        imgWidth: 400,
+        title: "Easy Payments",
+        subtitle: "Secure and hassle-free payment options for all services",
+      };
+    default:
+      return {
+        imgUrl: "",
+        imgHeight: 400,
+        imgWidth: 400,
+        title: "",
+        subtitle: "",
+      };
+  }
+};
 
   return (
     <div className="h-full w-full">
@@ -160,32 +204,16 @@ function Page() {
         ) : (
           // For onboarding screens, keep original styling
           <div className="absolute z-10 p-6 inset-2 flex items-center justify-center my-[40%]">
-            {currentPage === "onboarding" ? (
+            {currentPage !== "home" && (
               <div
-                onClick={handleGetStarted}
+                onClick={
+                  currentPage === "onboarding" ? handleGetStarted : handleNext
+                }
                 style={{ cursor: "pointer", width: "100%", height: "100%" }}
               >
-                <OnBoardingScreen imgUrl="/Icon/Page1.png" title="fiRST" subtitle="SUB"/>
+                <InfoScreen {...getScreenContent()} />
               </div>
-            ) : currentPage === "findService" ? (
-              <div
-                onClick={handleNext}
-                style={{ cursor: "pointer", width: "100%", height: "100%" }}
-              >
-                <FindServicePage />
-              </div>
-            ) : currentPage === "bookAppointment" ? (
-              <div
-                onClick={handleNext}
-                style={{ cursor: "pointer", width: "100%", height: "100%" }}
-              >
-                <BookTheAppointment />
-              </div>
-            ) : currentPage === "paymentGateway" ? (
-              <div style={{ width: "100%", height: "100%" }}>
-                <PaymentGateway />
-              </div>
-            ) : null}
+            )}
           </div>
         )}
       </div>
