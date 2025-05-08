@@ -1,26 +1,20 @@
-// components/FindServicePage.jsx
 import React from "react";
-import Image from "next/image";
+import InfoScreen from "./ui/InfoScreenProps";
 
 function FindServicePage() {
   return (
-    <div>
-      <div className="flex flex-col justify-center items-center gap-8">
-        <Image
-          className=""
-          src="/Icon/Page2.png"
-          height={420}
-          width={420}
-          alt="Welcome page logo"
-        />
-      </div>
-      <div className="flex flex-col gap-2">
-        <h2 className="text-black text-2xl font-bold">Find Your Service</h2>
-        <p className="text-slate-600">
-        Find your service as per your preferences
-        </p>
-      </div>
-    </div>
+    // <InfoScreen
+    //   imgUrl="/Icon/Page2.png"
+    //   imgHeight={420}
+    //   imgWidth={420}
+    //   title="Find Your Service"
+    //   subtitle="Find your service as per your preferences"
+    // />
+    <InfoScreen
+      imgUrl="/Icon/Page2.png" 
+      title="Find Your Service"
+      subtitle="Find your service as per your preferences"
+    />
   );
 }
 
