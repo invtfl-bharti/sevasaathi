@@ -64,7 +64,7 @@ const CaptainButtonNavigation = () => {
       </Link>
 
       {/* Ticket section */}
-      <Link href="">
+      <Link href="/captain/services">
         <button className="h-full w-full flex justify-center items-center">
           {/* <TbHome className="text-gray-400 text-3xl" /> */}
           <HiOutlineTicket className="text-gray1 text-3xl hover:text-lightpurple transition duration-300" />

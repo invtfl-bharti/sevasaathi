@@ -263,7 +263,7 @@ export default function Services() {
         </Link>
         <div className="h-full w-full flex items-center gap-2">
           <div className="h-8 w-1 rounded-xl bg-[#FFA3A3]"></div>
-          <h2 className="text-xl font-bold">Most Booked Services</h2>
+          <h2 className="text-xl font-bold">Services</h2>
         </div>
       </div>
 
