@@ -120,7 +120,7 @@ export default function CaptainDashboard({
                   ₹{captainData.totalEarning}
                 </div>
 
-                <div className="text-gray text-sm">Total Earning</div>
+                <div className="text-gray1 text-sm">Total Earning</div>
               </div>
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
                 <BarChart size={16} className="text-gray-600" />

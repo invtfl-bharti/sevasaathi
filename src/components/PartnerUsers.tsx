@@ -66,7 +66,7 @@ const PartnerUsers: React.FC = () => {
                 <a href="/admin/Serv" className="flex items-center space-x-2 w-full">
                   <img src="/Icon/services.png" alt="Services Icon" className="w-6 h-6" />
                   <span>Services</span>
-                  <span className="ml-auto bg-gray text-white text-xs px-2 rounded">2</span>
+                  <span className="ml-auto bg-gray1 text-white text-xs px-2 rounded">2</span>
                 </a>
               </li>
             </ul>

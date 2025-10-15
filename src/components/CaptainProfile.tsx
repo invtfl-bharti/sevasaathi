@@ -59,7 +59,7 @@ export default function Profile() {
                 <p className="text-lightpurple font-bold text-2xl">
                   {user.servicesDelivered}+
                 </p>
-                <p className="text-gray text-base">
+                <p className="text-gray1 text-base">
                   Service
                   <br />
                   Delivered
@@ -69,7 +69,7 @@ export default function Profile() {
                 <p className="text-lightpurple font-bold text-2xl">
                   0{user.yearsOfExperience} +
                 </p>
-                <p className="text-gray text-base">
+                <p className="text-gray1 text-base">
                   Years of
                   <br />
                   Experience
@@ -79,7 +79,7 @@ export default function Profile() {
             {/* Settings */}
             <div className="py-6">
               <div className="p-4 flex items-center border-b border-gray-100 gap-2">
-                <Globe size={20} className="text-gray" />
+                <Globe size={20} className="text-gray1" />
                 <span className="text-black text-lg">App Language</span>
               </div>
               <div className="p-4 flex items-center border-b border-gray-100 gap-2">
@@ -99,7 +99,7 @@ export default function Profile() {
 
           {/* Logout */}
           <div className="flex justify-center items-center">
-            <button className="text-purple text-xl">Logout</button>
+            <button className="text-purple1 text-xl">Logout</button>
           </div>
         </div>
       </div>

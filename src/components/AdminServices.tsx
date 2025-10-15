@@ -37,7 +37,7 @@ const AdminServices: React.FC = () => {
                 <Link href="/admin/Partners/PartnerUsers" className="flex items-center space-x-2 w-full">
                   <img src="/Icon/partner.png" alt="Partners Icon" className="w-6 h-6" />
                   <span>Partners</span>
-                  <span className="ml-auto bg-green text-white text-xs px-2 rounded">5</span>
+                  <span className="ml-auto bg-green4 text-white text-xs px-2 rounded">5</span>
                 </Link>
               </li>
               <li className="bg-red-300 text-white p-3 rounded-md flex items-center space-x-2 transition-all duration-300 hover:bg-red-100 hover:scale-105 cursor-pointer">
@@ -73,7 +73,7 @@ const AdminServices: React.FC = () => {
 
             {/* Buttons */}
             <div className="mt-4 flex space-x-2">
-              <button className="bg-purple text-white px-4 py-2 rounded flex-1">Assign</button>
+              <button className="bg-purple1 text-white px-4 py-2 rounded flex-1">Assign</button>
               <button className="bg-red-500 text-white px-4 py-2 rounded flex-1">Call</button>
             </div>
           </div>
@@ -94,7 +94,7 @@ const AdminServices: React.FC = () => {
 
             {/* Buttons */}
             <div className="mt-4 flex">
-              <button className="bg-green text-white px-4 py-2 rounded flex-1">Call</button>
+              <button className="bg-green4 text-white px-4 py-2 rounded flex-1">Call</button>
             </div>
           </div>
         </div>

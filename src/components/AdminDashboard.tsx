@@ -41,7 +41,7 @@ const AdminDashboard: React.FC = () => {
                 <a href="/admin/Partners/PartnerUsers" className="flex items-center space-x-2 w-full">
                     <img src="/Icon/partner.png" alt="Partners Icon" className="w-6 h-6" />
                     <span>Partners</span>
-                    <span className="ml-auto bg-green text-white text-xs px-2 rounded">5</span>
+                    <span className="ml-auto bg-green4 text-white text-xs px-2 rounded">5</span>
                 </a>
                 </li>
 

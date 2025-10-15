@@ -5,13 +5,14 @@ import Image from "next/image";
 
 interface ServiceAddCardProps {
   id: string;
-  name: string; // Added the missing 'name' property
+  name: string;
   description: string;
   price: number;
+  imageURL: string;
   onItemCountChange: (id: string, count: number) => void;
 }
 
-function ServiceAddCard({ id, onItemCountChange }: ServiceAddCardProps) {
+function ServiceAddCard({ id, name, description, price, imageURL, onItemCountChange }: ServiceAddCardProps) {
   const [itemAdded, setItemAdded] = React.useState(false);
   const [itemCount, setItemCount] = React.useState(0);
 
@@ -44,26 +45,30 @@ function ServiceAddCard({ id, onItemCountChange }: ServiceAddCardProps) {
     });
   };
 
+  // Calculate the original price (used for showing strikethrough price)
+  const originalPrice = Math.round(price * 1.67); // Approximately 67% more than the discounted price
+
   return (
-    <div className="h-full w-full flex justify-between ">
+    <div className="h-full w-full flex justify-between">
       <div className="relative w-40 h-32 bg-gray-400 rounded-lg">
         <Image
-          src="https://previews.123rf.com/images/lacheev/lacheev2203/lacheev220300467/183798923-portrait-of-happy-handsome-moustached-ac-maintenance-service-worker-holding-screwdriver-looking-at.jpg"
-          alt="AC Check-Up Service"
+          src={imageURL}
+          alt={`${name} Service`}
           fill
-          className="object-cover object-right rounded-lg"
+          className="object-cover object-center rounded-lg"
         />
       </div>
 
       <div className="h-full w-full flex flex-col justify-start px-4 gap-2 py-2">
-        <h3 className="font-semibold ">AC Check-Up</h3>
+        <h3 className="font-semibold">{name}</h3>
+        <p className="text-gray-600 text-sm">{description}</p>
         <div className="h-full w-full flex justify-between items-center">
           <div className="">
             <p className="text-gray-500 inline-block">Starts from</p>
             <br />
-            <div className=" p-2 mt-2 rounded-xl font-bold inline-block">
-              <span className="text-red-500 line-through">₹500</span>
-              <span className="text-green-600 text-lg"> ₹299</span>
+            <div className="p-2 mt-2 rounded-xl font-bold inline-block">
+              <span className="text-red-500 line-through">₹{originalPrice}</span>
+              <span className="text-green-600 text-lg"> ₹{price}</span>
             </div>
           </div>
 

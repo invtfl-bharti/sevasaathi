@@ -1,25 +1,26 @@
+// File: app/api/location/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/options";
+import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { getIO } from "@/lib/socket";
 import { calculateDistance } from "@/lib/geolocation";
+import { ApiResponse } from "@/types/ApiResponse";
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse<ApiResponse>> {
   try {
     // Get authenticated user
-    const session = await getServerSession(authOptions);
+    const session = await auth();
     
-    if (!session || !session.user?.email) {
+    if (!session?.user?.id) {
       return NextResponse.json(
-        { error: "Unauthorized: Please log in" },
+        { success: false, message: "Unauthorized: Please log in" },
         { status: 401 }
       );
     }
     
     // Get user with optimized query - select only needed fields
     const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
+      where: { id: session.user.id },
       select: {
         id: true,
         role: true,
@@ -33,7 +34,7 @@ export async function POST(request: NextRequest) {
     
     if (!user) {
       return NextResponse.json(
-        { error: "User not found" },
+        { success: false, message: "User not found" },
         { status: 404 }
       );
     }
@@ -45,7 +46,7 @@ export async function POST(request: NextRequest) {
     // Validate coordinates
     if (!latitude || !longitude || typeof latitude !== 'number' || typeof longitude !== 'number') {
       return NextResponse.json(
-        { error: "Invalid location data: Valid coordinates are required" },
+        { success: false, message: "Invalid location data: Valid coordinates are required" },
         { status: 400 }
       );
     }
@@ -156,27 +157,27 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Error updating location:", error);
     return NextResponse.json(
-      { error: "Failed to update location" },
+      { success: false, message: "Failed to update location" },
       { status: 500 }
     );
   }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET(request: NextRequest): Promise<NextResponse<ApiResponse>> {
   try {
     // Get authenticated user
-    const session = await getServerSession(authOptions);
+    const session = await auth();
     
-    if (!session || !session.user?.email) {
+    if (!session?.user?.id) {
       return NextResponse.json(
-        { error: "Unauthorized: Please log in" },
+        { success: false, message: "Unauthorized: Please log in" },
         { status: 401 }
       );
     }
     
     // Fetch user with optimized query
     const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
+      where: { id: session.user.id },
       select: {
         id: true,
         role: true,
@@ -190,7 +191,7 @@ export async function GET(request: NextRequest) {
     
     if (!user) {
       return NextResponse.json(
-        { error: "User not found" },
+        { success: false, message: "User not found" },
         { status: 404 }
       );
     }
@@ -209,7 +210,7 @@ export async function GET(request: NextRequest) {
       
       if (!location) {
         return NextResponse.json(
-          { error: "No location data found for this captain" },
+          { success: false, message: "No location data found for this captain" },
           { status: 404 }
         );
       }
@@ -248,7 +249,7 @@ export async function GET(request: NextRequest) {
       
       if (!activeTrip || !activeTrip.captainLatitude || !activeTrip.captainLongitude) {
         return NextResponse.json(
-          { error: "No active trip or location data found" },
+          { success: false, message: "No active trip or location data found" },
           { status: 404 }
         );
       }
@@ -275,7 +276,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error("Error fetching location:", error);
     return NextResponse.json(
-      { error: "Failed to retrieve location data" },
+      { success: false, message: "Failed to retrieve location data" },
       { status: 500 }
     );
   }

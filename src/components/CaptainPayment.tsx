@@ -23,7 +23,7 @@ const CaptainPayment: React.FC<Props> = ({ title }) => {
           <p className="text-base text-gray-500">Pipe Cleaning</p>
         </div>
 
-        <h2 className="text-2xl text-green font-semibold">+₹420</h2>
+        <h2 className="text-2xl text-green4 font-semibold">+₹420</h2>
       </div>
     </div>
   );

@@ -141,6 +141,21 @@ export default function Dashboard() {
               Services <span className="ml-2 px-2 py-0.5 bg-gray-700 text-white text-xs rounded-full">12</span>
             </Link>
           </div>
+
+          <div className="mb-2 border-l-2 border-red-400">
+            <Link href="/admin/forms/service-category" className="flex items-center pl-2 py-2 text-gray-700 hover:bg-gray-100 rounded">
+              <User size={18} className="mr-2" />
+              ADD Service Category <span className="ml-2 px-2 py-0.5 bg-gray-700 text-white text-xs rounded-full">12</span>
+            </Link>
+          </div>
+
+          <div className="mb-2 border-l-2 border-red-400">
+            <Link href="/admin/forms/service" className="flex items-center pl-2 py-2 text-gray-700 hover:bg-gray-100 rounded">
+              <User size={18} className="mr-2" />
+              ADD Service <span className="ml-2 px-2 py-0.5 bg-gray-700 text-white text-xs rounded-full">12</span>
+            </Link>
+          </div>
+          
         </div>
       </aside>
 

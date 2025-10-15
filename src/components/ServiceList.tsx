@@ -52,7 +52,7 @@ export default function ServiceList({ services }: ServiceListProps) {
                 ₹{service.price}
               </span>
               {service.discount && (
-                <span className="text-green text-sm font-semibold">
+                <span className="text-green4 text-sm font-semibold">
                   {service.discount}
                 </span>
               )}

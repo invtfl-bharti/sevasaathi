@@ -13,7 +13,7 @@ function OnBoardingScreen({ imgUrl, title, subtitle }: onBoardingProps) {
       <div className="flex flex-col justify-center items-center gap-8">
         <Image
           className=""
-          src={imgUrl}
+          src="/Icon/HomePage.png"
           height={400}
           width={400}
           alt="Welcome page logo"

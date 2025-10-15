@@ -28,8 +28,8 @@ export default function EditProfile() {
 
       {/* Profile Picture */}
       <div className="flex justify-center items-center">
-        <div className="h-32 w-32 bg-gray opacity-40 rounded-full relative"></div>
-        <div className="absolute bg-purple h-10 w-10 rounded-full p-2 ">
+        <div className="h-32 w-32 bg-gray1 opacity-40 rounded-full relative"></div>
+        <div className="absolute bg-purple1 h-10 w-10 rounded-full p-2 ">
           <div className="flex justify-center items-center text-white text-2xl font-bold">
             <IoCameraOutline />
           </div>
@@ -44,7 +44,7 @@ export default function EditProfile() {
             <input
               type="text"
               placeholder="Full Name"
-              className="bg-slate-100 h-full w-full p-2 tracking-wide text-gray text-xl outline-none"
+              className="bg-slate-100 h-full w-full p-2 tracking-wide text-gray1 text-xl outline-none"
             />
             <FaRegUser />
           </div>
@@ -54,7 +54,7 @@ export default function EditProfile() {
             <input
               type="text"
               placeholder="Last Name"
-              className="bg-slate-100 h-full w-full p-2 tracking-wide text-gray text-xl outline-none"
+              className="bg-slate-100 h-full w-full p-2 tracking-wide text-gray1 text-xl outline-none"
             />
             <FaRegUser />
           </div>
@@ -65,7 +65,7 @@ export default function EditProfile() {
             <input
               type="email"
               placeholder="Email"
-              className="bg-slate-100 h-full w-full p-2 tracking-wide text-gray text-xl outline-none"
+              className="bg-slate-100 h-full w-full p-2 tracking-wide text-gray1 text-xl outline-none"
             />
             <MdMailOutline />
           </div>
@@ -76,7 +76,7 @@ export default function EditProfile() {
             <input
               type="text"
               placeholder="Phone Number"
-              className="bg-slate-100 h-full w-full p-2 tracking-wide text-gray text-xl outline-none"
+              className="bg-slate-100 h-full w-full p-2 tracking-wide text-gray1 text-xl outline-none"
             />
             <FiPhone className="text-lg" />
           </div>
@@ -91,7 +91,7 @@ export default function EditProfile() {
             <input
               type="text"
               placeholder="Address"
-              className="bg-slate-100 h-full w-full p-2 tracking-wide text-gray text-xl outline-none"
+              className="bg-slate-100 h-full w-full p-2 tracking-wide text-gray1 text-xl outline-none"
             />
             <GrLocation className="text-lg" />
           </div>

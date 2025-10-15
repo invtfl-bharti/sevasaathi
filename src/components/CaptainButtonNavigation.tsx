@@ -59,7 +59,7 @@ const CaptainButtonNavigation = () => {
       <Link href="/captain/dashboard">
         <button className="h-full w-full flex justify-center items-center">
           {/* <TbHome className="text-gray-400 text-3xl" /> */}
-          <TbHomeFilled className="text-gray text-3xl hover:text-lightpurple transition duration-300" />
+          <TbHomeFilled className="text-gray1 text-3xl hover:text-lightpurple transition duration-300" />
         </button>
       </Link>
 
@@ -67,7 +67,7 @@ const CaptainButtonNavigation = () => {
       <Link href="">
         <button className="h-full w-full flex justify-center items-center">
           {/* <TbHome className="text-gray-400 text-3xl" /> */}
-          <HiOutlineTicket className="text-gray text-3xl hover:text-lightpurple transition duration-300" />
+          <HiOutlineTicket className="text-gray1 text-3xl hover:text-lightpurple transition duration-300" />
         </button>
       </Link>
 
@@ -75,7 +75,7 @@ const CaptainButtonNavigation = () => {
 
       <Link href="/captain/payment/payment-history">
         <button className="h-full w-full flex justify-center items-center">
-          <LuWallet className="text-gray text-3xl  hover:text-lightpurple transition duration-300" />
+          <LuWallet className="text-gray1 text-3xl  hover:text-lightpurple transition duration-300" />
           {/* <RiFileList3Fill className="text-lightpurple text-3xl" />  */}
         </button>
       </Link>
@@ -83,7 +83,7 @@ const CaptainButtonNavigation = () => {
       {/* Notification section */}
       <Link href="/captain/shop">
         <button className="h-full w-full flex justify-center items-center">
-          <LuShoppingBag className="text-gray text-3xl " />
+          <LuShoppingBag className="text-gray1 text-3xl " />
           {/* <VscBellDot className="text-lightpurple text-3xl"/> */}
         </button>
       </Link>
@@ -100,7 +100,7 @@ const CaptainButtonNavigation = () => {
       {/* User section */}
       <Link href="/captain/profile">
         <button className="h-full w-full flex justify-center items-center">
-          <FaRegCircleUser className="text-gray text-3xl" />
+          <FaRegCircleUser className="text-gray1 text-3xl" />
           {/* <FaCircleUser className="text-lightpurple text-3xl" /> */}
         </button>
       </Link>

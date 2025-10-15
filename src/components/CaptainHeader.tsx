@@ -48,7 +48,7 @@ function CaptainHeader({ captainName: propCaptainName }: CaptainHeaderProps) {
         >
           {captainData.availability ? "Online" : "Offline"}
           <div
-            className={`h-3 w-3 rounded-full ${captainData.availability ? "bg-green" : "bg-gray"}`}
+            className={`h-3 w-3 rounded-full ${captainData.availability ? "bg-green4" : "bg-gray1"}`}
           ></div>
         </div>
         <div className="flex justify-center items-center gap-4">

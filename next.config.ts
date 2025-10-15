@@ -4,14 +4,16 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "previews.123rf.com",
-      },
-      {
-        protocol: "https",
-        hostname: "static.vecteezy.com",
+        protocol: 'https',
+        hostname: '**', // All domains (use with caution)
+        // Or specific domains:
+        // hostname: 'example.com',
       },
     ],
+
+  },
+  experimental: {
+    externalDir: true,
   },
 };
 

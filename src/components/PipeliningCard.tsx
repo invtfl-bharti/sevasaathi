@@ -39,7 +39,7 @@ export default function PipeCleaningCard() {
             <p className="text-sm text-gray-500">Assigned</p>
           </div>
         </div>
-        <button className="bg-green hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center">
+        <button className="bg-green4 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center">
           <Phone className="mr-2" size={16} />
           Call
         </button>

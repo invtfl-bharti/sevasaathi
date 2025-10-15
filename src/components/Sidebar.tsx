@@ -8,6 +8,8 @@ import { TbUsers } from "react-icons/tb";
 import { FaPhone } from "react-icons/fa6";
 import { MdLogout } from "react-icons/md";
 import Image from "next/image";
+import { auth } from "@/lib/auth";
+import { useEffect } from "react";
 
 interface SidebarProps {
   isVisible: boolean;
@@ -15,6 +17,18 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isVisible, setIsVisible }) => {
+
+  const [user, setUser] = React.useState<{ username: string; email: string } | null>(null);
+
+  useEffect(() => {
+    auth().then((data) => {
+      console.log("User data for profile : ",data);
+      if (data && data.user) {
+        setUser({ username: data.user.username, email: data.user.email });
+      }
+    });
+  }, []);
+
   return (
     <>
       {/* Sidebar */}
@@ -35,7 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isVisible, setIsVisible }) => {
         <div className="flex items-center gap-3 mt-4">
           <div className="rounded-full h-16 w-16 border-2 border-white bg-gray-300">
             <Image
-              src="https://static.vecteezy.com/system/resources/thumbnails/004/607/791/small_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
+              src={"/default-avatar.png"}
               alt="User Avatar"
               objectFit="cover"
               height={80}
@@ -44,8 +58,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isVisible, setIsVisible }) => {
             />
           </div>
           <div>
-            <h3 className="text-lg font-semibold">Harsh Mahajan</h3>
-            <p className="text-sm text-lightgray">harsh@gmail.com</p>
+            <h3 className="text-lg font-semibold">{user?.username || "Guest"} </h3>
+            <p className="text-sm text-lightgray">{user?.email || "No email available"}</p>
           </div>
         </div>
 
@@ -97,3 +111,5 @@ const Sidebar: React.FC<SidebarProps> = ({ isVisible, setIsVisible }) => {
 };
 
 export default Sidebar;
+// Removed the conflicting local declaration of useEffect
+

@@ -8,11 +8,11 @@ export async function GET(req: NextRequest) {
     const limit = parseInt(url.searchParams.get("limit") || "6");
     const categoryId = url.searchParams.get("categoryId") || undefined;
     
-    // Get the top services by order count
+    // Get the top services by order count from the OrderService model
     const topServices = await prisma.orderService.groupBy({
       by: ["serviceId"],
       _count: { serviceId: true },
-      _sum: { units: true },
+      _sum: { units: true, cost: true }, // Added cost sum based on the schema
       orderBy: {
         _count: {
           serviceId: "desc",
@@ -62,6 +62,7 @@ export async function GET(req: NextRequest) {
           category: null,
           ordersCount: s._count.serviceId,
           totalUnits: s._sum.units || 0,
+          totalCost: s._sum.cost || 0, // Added total cost from sum
         };
       }
       
@@ -77,16 +78,22 @@ export async function GET(req: NextRequest) {
         } : null,
         ordersCount: s._count.serviceId,
         totalUnits: s._sum.units || 0,
+        totalCost: s._sum.cost || 0, // Added total cost from sum
       };
     });
 
+    // Filter out services that don't match the categoryId constraint if specified
+    const filteredResults = categoryId 
+      ? result.filter(r => r.category && r.category.id === categoryId) 
+      : result;
+
     // Sort to preserve the original order from the groupBy
-    result.sort((a, b) => b.ordersCount - a.ordersCount);
+    filteredResults.sort((a, b) => b.ordersCount - a.ordersCount);
 
     return NextResponse.json(
       {
         success: true,
-        data: result,
+        data: filteredResults,
       },
       { status: 200 }
     );

@@ -89,7 +89,7 @@ function PaymentHistory() {
                 {payment.transactionId ? "Online" : "Cash"}
               </p>
             </div>
-            <p className="text-gray text-lg">
+            <p className="text-gray1 text-lg">
               {payment.booking?.order?.orderServices?.[0]?.service?.name ||
                 "Service"}
             </p>
@@ -102,7 +102,7 @@ function PaymentHistory() {
               </div>
               <div className="flex justify-between items-end">
                 <h3 className="font-semibold text-lg">Date</h3>
-                <p className="text-gray">{formatDate(payment.createdAt)}</p>
+                <p className="text-gray1">{formatDate(payment.createdAt)}</p>
               </div>
               <div className="flex justify-between items-end">
                 <h3 className="font-semibold text-lg">Status</h3>
@@ -161,7 +161,7 @@ export default PaymentHistory;
 //           <p>Payment Method : </p>{" "}
 //           <p className="text-lightpurple font-semibold">Cash</p>{" "}
 //         </div>{" "}
-//         <p className="text-gray text-lg">TV Repair</p>{" "}
+//         <p className="text-gray1 text-lg">TV Repair</p>{" "}
 //         <div
 //           className="bg-[
 //     #F0F0FA] p-2 rounded-xl flex flex-col gap-2"
@@ -175,7 +175,7 @@ export default PaymentHistory;
 //           <div className="flex justify-between items-end">
 //             {" "}
 //             <h3 className="font-semibold text-lg">Date</h3>{" "}
-//             <p className="text-gray">02 Dec, 2022</p>{" "}
+//             <p className="text-gray1">02 Dec, 2022</p>{" "}
 //           </div>{" "}
 //         </div>{" "}
 //       </div>{" "}
@@ -186,7 +186,7 @@ export default PaymentHistory;
 //           <p>Payment Method : </p>{" "}
 //           <p className="text-lightpurple font-semibold">Cash</p>{" "}
 //         </div>{" "}
-//         <p className="text-gray text-lg">TV Repair</p>{" "}
+//         <p className="text-gray1 text-lg">TV Repair</p>{" "}
 //         <div
 //           className="bg-[
 //     #F0F0FA] p-2 rounded-xl flex flex-col gap-2"
@@ -200,7 +200,7 @@ export default PaymentHistory;
 //           <div className="flex justify-between items-end">
 //             {" "}
 //             <h3 className="font-semibold text-lg">Date</h3>{" "}
-//             <p className="text-gray">02 Dec, 2022</p>{" "}
+//             <p className="text-gray1">02 Dec, 2022</p>{" "}
 //           </div>{" "}
 //         </div>{" "}
 //       </div>{" "}

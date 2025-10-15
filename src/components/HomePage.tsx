@@ -7,18 +7,17 @@ import { useRouter } from "next/navigation";
 const HomePage = () => {
   const router = useRouter();
 
-  const handleGuestContinue = () => {
-    // Using push method with proper path
-    router.push("/user/dashboard");
+  const handleUserContinue = () => {
+    router.push("/user/login");
   };
 
   const handleProfessionalContinue = () => {
-    router.push("/captain/dashboard");
+    router.push("/captain/login");
   };
 
   return (
     <div className="h-full w-full">
-      {/* logo and the semi circle */}
+      {/* logo and the semi circle - reduced z-index to ensure it doesn't cover interactive elements */}
       <div>
         <svg
           width="100%"
@@ -27,21 +26,23 @@ const HomePage = () => {
           preserveAspectRatio="xMidYMid slice"
           xmlns="http://www.w3.org/2000/svg"
           className="absolute top-0 left-0 z-0"
+          style={{ pointerEvents: "none" }}
         >
           <circle cx="0" cy="0" r="60" fill="#FFCACA" />
         </svg>
       </div>
 
-      <div className="flex flex-col justify-center items-center gap-6 p-2 ">
+      {/* Increased z-index to ensure content is above background elements */}
+      <div className="flex flex-col justify-center items-center gap-6 p-2 relative z-10">
         <div className="object-cover flex justify-center items-center">
-                <Image src="/Icon/logo.png" height={200} width={200} alt=""></Image>
-              </div>
+          <Image src="/Icon/logo.png" height={200} width={200} alt="Logo" />
+        </div>
         <div className="relative">
           <Image
             src="/Icon/HomePage.png"
             height={550}
             width={550}
-            alt=""
+            alt="Home Page"
             className="bg-cover object-cover"
           />
 
@@ -49,7 +50,7 @@ const HomePage = () => {
             <div className="relative w-full h-32">
               <div
                 className="absolute w-full overflow-hidden"
-                style={{ transform: "rotate(-10deg)", top: "-5px" }}
+                style={{ transform: "rotate(-10deg)", top: "-5px", pointerEvents: "none" }}
               >
                 <div className="animate-scrollRight whitespace-nowrap flex">
                   <ScallopedServiceRibbon
@@ -77,7 +78,7 @@ const HomePage = () => {
 
               <div
                 className="absolute w-full overflow-hidden"
-                style={{ transform: "rotate(10deg)", top: "35px" }}
+                style={{ transform: "rotate(10deg)", top: "35px", pointerEvents: "none" }}
               >
                 <div className="animate-scrollLeft whitespace-nowrap flex">
                   <ScallopedServiceRibbon
@@ -113,17 +114,17 @@ const HomePage = () => {
           </h3>
         </div>
 
-        <div className="flex flex-col gap-6 h-full w-[80%] font-semibold text-lg">
-          {/* Using onClick with an inline function to ensure the event is properly captured */}
+        {/* Added higher z-index to ensure buttons are clickable */}
+        <div className="flex flex-col gap-6 h-full w-[80%] font-semibold text-lg relative z-20">
           <button
-            className="bg-lightpurple text-white p-2 rounded-md"
-            onClick={() => router.push("/user/dashboard")}
+            className="bg-lightpurple text-white p-2 rounded-md cursor-pointer"
+            onClick={handleUserContinue}
           >
             Continue As User
           </button>
           <button
-            className="bg-lightpurple text-white p-2 rounded-md"
-            onClick={() => router.push("/captain/dashboard")}
+            className="bg-lightpurple text-white p-2 rounded-md cursor-pointer"
+            onClick={handleProfessionalContinue}
           >
             Continue As Professional
           </button>
